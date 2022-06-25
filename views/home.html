@@ -1,0 +1,10 @@
+<h1>home</h1>
+{{
+    text = "<ul>";
+    l = data.arr.length;
+    for(let i = 0; i < l ; i++){
+        text += "<li>" + data.arr[i] + "</li>";
+    }
+    text += "</ul>";
+    return text;
+}}
