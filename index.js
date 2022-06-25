@@ -8,7 +8,7 @@ serverEngine.set("action", (req, res, next) => {
     url = url.slice(1);
     url = url.split('/');
     let path = './controllers/' + url[0] + ".js";
-    console.log(path);
+    // console.log(path);
     if(fs.existsSync(path)){
         url[0] = require(path);
         if(url[2]){
@@ -20,10 +20,10 @@ serverEngine.set("action", (req, res, next) => {
                 params[i] = params[i].split("=");
                 obj[params[i][0]] = params[i][1];
             }
-            console.log("have params: " + url[0][url[1]](req, res, next, obj));
+            url[0][url[1]](req, res, next, obj)
         }
         else{
-            console.log("dont params: " + url[0][url[1]](req, res, next));
+            url[0][url[1]](req, res, next)
         }
     }
 });
