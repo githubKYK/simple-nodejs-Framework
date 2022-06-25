@@ -2,10 +2,9 @@ const view = require('../views/control');
 const data = require('../data/control');
 
 class Home{
-    home(param){
+    home(req, res, next, param){
         if(param)
-        return JSON.stringify(param);
-        return "MY home";
+        res.write(JSON.stringify(param));
     }
 }
 module.exports = new Home;

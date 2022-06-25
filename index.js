@@ -20,10 +20,10 @@ serverEngine.set("action", (req, res, next) => {
                 params[i] = params[i].split("=");
                 obj[params[i][0]] = params[i][1];
             }
-            console.log("have params: " + url[0][url[1]](obj));
+            console.log("have params: " + url[0][url[1]](req, res, next, obj));
         }
         else{
-            console.log("dont params: " + url[0][url[1]]());
+            console.log("dont params: " + url[0][url[1]](req, res, next));
         }
     }
 });
