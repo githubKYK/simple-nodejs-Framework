@@ -107,7 +107,6 @@ class Template{
     //get code of elements to layout
     asignElementToTemplate(view, options = {layouts:true}){
         let template = this.templateElements();
-        console.log(template);
         let content = template.content;
         //subs
         let subLoop = template.subs.length;
@@ -194,7 +193,6 @@ class Template{
         while(startCodeArea > -1){
             let endCode = content.indexOf(this.closeCode, startCodeArea);
             let codeArea = content.substring(startCodeArea, endCode + closeCodeLength);
-            console.log(codeArea);
             let code = codeArea.substring(openCodeLength, codeArea.length - closeCodeLength);
             code = data +  "try{" + code  + "}catch(err){console.log(err);}";
             code = new Function(code);

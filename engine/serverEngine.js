@@ -26,7 +26,9 @@ class ServerEngine{
                     res.write(staticContent);
                 }
             }
-            action(req, res, next);
+            else{
+                action(req, res, next);
+            }
             res.end();
         }).listen(this.port);
     }

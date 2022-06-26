@@ -8,9 +8,9 @@ serverEngine.set("action", (req, res, next) => {
     url = url.slice(1);
     url = url.split('/');
     let path = './controllers/' + url[0] + ".js";
-    // console.log(path);
     if(fs.existsSync(path)){
         url[0] = require(path);
+        console.log(url);
         if(url[2]){
             url[2] = url[2].split("&");
             let params = url[2];
@@ -20,10 +20,10 @@ serverEngine.set("action", (req, res, next) => {
                 params[i] = params[i].split("=");
                 obj[params[i][0]] = params[i][1];
             }
-            url[0][url[1]](req, res, next, obj)
+            url[0][url[1]](req, res, next, obj);
         }
         else{
-            url[0][url[1]](req, res, next)
+            url[0][url[1]](req, res, next);
         }
     }
 });
